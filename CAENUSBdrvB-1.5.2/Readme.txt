@@ -9,13 +9,19 @@
         
         ----------------------------------------------------------------------
 
-        Package for Linux kernels 2.6, 3.6
+        Package for Linux kernels 2.6, 3.x
 
-        January 2014
+        February 2018
 
 
  The complete documentation can be found in the User's Manual on CAEN's web
  site at: http://www.caen.it.
+----install on ubuntu 16.04
+install:
+sudo make CC=/usr/bin/gcc-5
+sudo make install
+-----
+
 
 
  Content
@@ -29,26 +35,19 @@
 
  CAENUSBdrvB.h    		: The header file of the driver
 
- Makefile         		: The Makefile to compile the driver for kernel 2.6 to 3.6
+ Makefile         		: The Makefile to compile the driver for kernel 2.6 to 4.13
  
 
  System Requirements
  -------------------
 
- - Linux kernel Rel. 2.6/3.6 with gnu C/C++ compiler
+ - Linux kernel Rel. 2.6/3.x with gnu C/C++ compiler
 
  Compilation notes:
  
   To compile the CAENUSBdrvB device driver:
 
   - Execute: make
-
-NOTE: for unbuntu 16.04,
-sudo make CC=/usr/bin/gcc-5
-sudo make install
-
-otherwise will be an error of  
-modprobe: ERROR
  
  Installation notes
  ------------------
