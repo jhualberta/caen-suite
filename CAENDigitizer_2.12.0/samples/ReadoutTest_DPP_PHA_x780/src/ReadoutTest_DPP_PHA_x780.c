@@ -119,7 +119,7 @@ int ProgramDigitizer(int handle, DigitizerParams_t Params, CAEN_DGTZ_DPP_PHA_Par
         the second is always the trigger
 
     Virtual Probes 1 types:
-   CAEN_DGTZ_DPP_VIRTUALPROBE_Input
+    CAEN_DGTZ_DPP_VIRTUALPROBE_Input
     CAEN_DGTZ_DPP_VIRTUALPROBE_Delta
     CAEN_DGTZ_DPP_VIRTUALPROBE_Delta2
     CAEN_DGTZ_DPP_VIRTUALPROBE_Trapezoid
