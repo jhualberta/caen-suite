@@ -9,7 +9,7 @@
 #  March  2004 :   Created.
 #
 #=============================================================================
-
+# Jie: may use so.2.30.2 instead of so.2.41
 install x64/libCAENVME.so.2.41 /usr/lib
 ln -sf /usr/lib/libCAENVME.so.2.41 /usr/lib/libCAENVME.so
 /sbin/ldconfig
