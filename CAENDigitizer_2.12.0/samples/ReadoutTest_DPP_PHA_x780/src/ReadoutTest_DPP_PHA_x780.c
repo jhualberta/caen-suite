@@ -15,10 +15,11 @@
 ******************************************************************************/
 
 #include <CAENDigitizer.h>
-
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 
+using namespace std;
 //#define INDIVIDUAL_TRIGGER_INPUTS
 // The following define must be set to the actual number of connected boards
 #define MAXNB   1
@@ -344,6 +345,7 @@ int main(int argc, char *argv[])
         \****************************/
         // Direct USB connection
         Params[b].LinkType = CAEN_DGTZ_USB;  // Link Type
+        cout<<"USB connected"<<endl;
         Params[b].VMEBaseAddress = 0;  // For direct USB connection, VMEBaseAddress must be 0
 
         // Direct optical connection
@@ -372,20 +374,20 @@ int main(int argc, char *argv[])
         *      DPP parameters        *
         \****************************/
         for(ch=0; ch<MaxNChannels; ch++) {
-            DPPParams[b].thr[ch] = 100;   // Trigger Threshold (in LSB)
-			DPPParams[b].k[ch] = 2000;     // Trapezoid Rise Time (ns)
-			DPPParams[b].m[ch] = 1000;      // Trapezoid Flat Top  (ns) 
-			DPPParams[b].M[ch] = 50000;      // Decay Time Constant (ns) 
-			DPPParams[b].ftd[ch] = 800;    // Flat top delay (peaking time) (ns) 
+            DPPParams[b].thr[ch] = 50;//100;   // Trigger Threshold (in LSB)
+			DPPParams[b].k[ch] = 400;//2000;     // Trapezoid Rise Time (ns)
+			DPPParams[b].m[ch] = 100;//1000;      // Trapezoid Flat Top  (ns) 
+			DPPParams[b].M[ch] = 430;//50000;      // Decay Time Constant (ns) 
+			DPPParams[b].ftd[ch] = 344;//800;    // Flat top delay (peaking time) (ns) 
             DPPParams[b].a[ch] = 4;       // Trigger Filter smoothing factor (number of samples to average for RC-CR2 filter) Options: 1; 2; 4; 8; 16; 32
-			DPPParams[b].b[ch] = 200;     // Input Signal Rise time (ns)
-            DPPParams[b].trgho[ch] = 1200;  // Trigger Hold Off
+			DPPParams[b].b[ch] = 100;//200;     // Input Signal Rise time (ns)
+            DPPParams[b].trgho[ch] = 800;//1200;  // Trigger Hold Off
 			DPPParams[b].nsbl[ch] = 4;     //number of samples for baseline average calculation. Options: 1->16 samples; 2->64 samples; 3->256 samples; 4->1024 samples; 5->4096 samples; 6->16384 samples
 			DPPParams[b].nspk[ch] = 0;     //Peak mean (number of samples to average for trapezoid height calculation). Options: 0-> 1 sample; 1->4 samples; 2->16 samples; 3->64 samples
-			DPPParams[b].pkho[ch] = 2000;  //peak holdoff (ns)
-			DPPParams[b].blho[ch] = 500;   //Baseline holdoff (ns)
+			DPPParams[b].pkho[ch] = 5000;//2000;  //peak holdoff (ns)
+			DPPParams[b].blho[ch] = 2000;//500;   //Baseline holdoff (ns)
 			DPPParams[b].enf[ch] = 1.0; // Energy Normalization Factor
-			DPPParams[b].decimation[ch] = 0;  //decimation (the input signal samples are averaged within this number of samples): 0 ->disabled; 1->2 samples; 2->4 samples; 3->8 samples
+			DPPParams[b].decimation[ch] = 1;//0;  //decimation (the input signal samples are averaged within this number of samples): 0 ->disabled; 1->2 samples; 2->4 samples; 3->8 samples
 			DPPParams[b].dgain[ch] = 0;    //decimation gain. Options: 0->DigitalGain=1; 1->DigitalGain=2 (only with decimation >= 2samples); 2->DigitalGain=4 (only with decimation >= 4samples); 3->DigitalGain=8( only with decimation = 8samples).
 			DPPParams[b].otrej[ch] = 0;
 			DPPParams[b].trgwin[ch] = 0;  //Enable Rise time Discrimination. Options: 0->disabled; 1->enabled
