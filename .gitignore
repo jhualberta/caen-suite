@@ -2,6 +2,7 @@
 \#*
 *.old
 *.bak
+*.swp
 
 # temporary files
 *.exe

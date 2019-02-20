@@ -155,7 +155,7 @@ void FillHVParameterDT5780(HighVoltageParams_t *Params);
 /*! \fn      PrintInterface()
 *   \brief   Print the interface to screen
 *   \return  none
-/* --------------------------------------------------------------------------------------------------------- */
+* --------------------------------------------------------------------------------------------------------- */
 void PrintInterface();
 
 #endif

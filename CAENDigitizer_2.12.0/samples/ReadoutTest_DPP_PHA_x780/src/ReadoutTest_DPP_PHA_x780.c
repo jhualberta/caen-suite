@@ -15,14 +15,12 @@
 ******************************************************************************/
 
 #include <CAENDigitizer.h>
-#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 
-using namespace std;
 //#define INDIVIDUAL_TRIGGER_INPUTS
 // The following define must be set to the actual number of connected boards
-#define MAXNB   1
+#define MAXNB  1 // Jie: # of the instrument connected to USB
 // NB: the following define MUST specify the ACTUAL max allowed number of board's channels
 // it is needed for consistency inside the CAENDigitizer's functions used to allocate the memory
 #define MaxNChannels 2
@@ -345,7 +343,7 @@ int main(int argc, char *argv[])
         \****************************/
         // Direct USB connection
         Params[b].LinkType = CAEN_DGTZ_USB;  // Link Type
-        cout<<"USB connected"<<endl;
+        printf("USB connected\n"); // Jie
         Params[b].VMEBaseAddress = 0;  // For direct USB connection, VMEBaseAddress must be 0
 
         // Direct optical connection
@@ -479,7 +477,7 @@ int main(int argc, char *argv[])
     ret |= CAEN_DGTZ_MallocDPPWaveforms(handle[0], &Waveform, &AllocatedSize); 
     if (ret) {
         printf("Can't allocate memory buffers\n");
-        goto QuitProgram;    
+        goto QuitProgram;
     }
 
         

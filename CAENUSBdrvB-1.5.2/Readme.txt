@@ -16,12 +16,6 @@
 
  The complete documentation can be found in the User's Manual on CAEN's web
  site at: http://www.caen.it.
-----install on ubuntu 16.04
-install:
-sudo make CC=/usr/bin/gcc-5
-sudo make install
------
-
 
 
  Content

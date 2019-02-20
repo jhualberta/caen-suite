@@ -15,9 +15,16 @@
 ******************************************************************************/
 
 #include <CAENDigitizer.h>
-
 #include <stdio.h>
 #include <stdlib.h>
+
+/*Jie: Set parameters
+
+PulsePolarity Positivie
+Short Gate 15 ns
+Long Gate  35 ns
+
+*/
 
 //#define MANUAL_BUFFER_SETTING   0
 // The following define must be set to the actual number of connected boards
@@ -254,7 +261,7 @@ int main(int argc, char *argv[])
         Params[b].RecordLength = 360;                              // Num of samples of the waveforms (only for Oscilloscope mode)-> Acq window = Recordlength * (1ns)
         Params[b].ChannelMask = 0xF;    //0xF                           // Channel enable mask
         Params[b].EventAggr = 0;                                  // number of events in one aggregate (0=automatic)
-        Params[b].PulsePolarity = CAEN_DGTZ_PulsePolarityNegative; // Pulse Polarity (this parameter can be individual)
+        Params[b].PulsePolarity = CAEN_DGTZ_PulsePolarityPositive;//Negative; // Pulse Polarity (this parameter can be individual)
 
         /****************************\
         *      DPP parameters        *
@@ -271,8 +278,8 @@ int main(int argc, char *argv[])
 			6 -> 256samp
 			7 -> 512samp*/
             DPPParams[b].nsbl[ch] = 1;
-            DPPParams[b].lgate[ch] = 200;    // Long Gate Width (N*1ns) 
-            DPPParams[b].sgate[ch] = 24;    // Short Gate Width (N*1ns)
+            DPPParams[b].lgate[ch] = 35;//200;    // Long Gate Width (N*1ns) 
+            DPPParams[b].sgate[ch] = 15;//24;    // Short Gate Width (N*1ns)
             DPPParams[b].pgate[ch] = 8;     // Pre Gate Width (N*1ns)
             /* Self Trigger Mode:
             0 -> Disabled
